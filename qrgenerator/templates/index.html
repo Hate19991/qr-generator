@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="../static/style.css">
+    <body ondragstart="return false" onselect="return false">
+
+        <h1>Generate your qrcode</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input name="url" type="text" id="url" style="display: none;"><br>
+            <label>time</label><br>
+            <input name="time" id="time" type="time" placeholder="time"><br>
+            <label>venue</label><br>
+            <input name="venue" id="venue" type="text" placeholder="venue"><br>
+            <label>details</label><br>
+            <input name="details" id="details" type="text" placeholder="details"><br>
+            <label>image</label><br>
+            <input name="image" type="file" placeholder="give a name/title to your event" id="image"><br>
+            <label>name</label><br>
+            <input name="name" type="text" placeholder="give a name/title to your event" id="name"><br>
+            <button>Submit</button><br>
+            
+        </form>
+        {% for event in events %}
+        <a href="display/{{event.name_of_event}}/{{event.id}}">preview</a></button>
+        {% endfor %}
+       
+        {% comment %} {% for event in events %}
+        <li>{{ event.name_of_event }}</li>
+        {% endfor %} {% endcomment %}
+        <script>
+        let name_input = document.getElementById("name")
+        let inputs = document.querySelectorAll('input')
+        let iframe = document.getElementById("iframe")
+        let urls = document.getElementById("url")
+        for(let i = 0 ; i < inputs.length ; i++){
+        inputs[i].onchange = function show(){
+        url.value = ''
+        let endpoint = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputs[6].value} event by ${inputs[2].value} at ${inputs[3].value}`
+        url.value = endpoint
+        iframe.setAttribute("src",endpoint)
+        }
+    }
+    
+        </script>
+    </body>
+    
+</html>

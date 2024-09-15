@@ -1,0 +1,60 @@
+body{
+    text-align: center;
+}
+form::selection{
+    color: white;
+    background-color: rgb(16, 38, 46);
+}
+form::selection::after{
+    color: white;
+    background-color: rgb(16, 38, 46);
+}
+iframe{
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+input{
+    padding: 10px;
+    margin: 5px 0;
+    width: 300px;
+    height: 50px;
+}
+input:active{
+    background-color: rgb(17, 37, 44);
+}
+input:active::after{
+    background-color: rgb(19, 47, 56);
+}
+input:focus{
+    background-color: rgb(16, 38, 46);
+}
+label{
+    margin-left: -250px; 
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: small;
+    line-height: 70px;
+}
+
+button{
+    border: none;
+    background-color: rgb(16, 38, 46);
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+}
+input:focus::placeholder{
+    color: white;
+}
+h1{
+    text-transform: capitalize;
+    margin: 10px 0;
+}
+button{
+    margin-top: 20px;
+}
+button:active{
+    transform: translateX(-4px);
+}

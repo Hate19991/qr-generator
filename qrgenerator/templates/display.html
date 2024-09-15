@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="../static/style.css">
+    <body ondragstart="return false" onselect="return false">
+<style>
+    body{text-align: center;
+        font-family: sans-serif;
+}
+</style>
+        <h1>Generate your qrcode</h1>
+
+        {% for models in model %}
+            <p>Event name :{{ models.name_of_event }}</p>
+            <p>Event venue :{{ models.venue_of_event }}</p>
+            <p>Event time :{{ models.time_of_event }}</p>
+            <p>Event details :{{ models.details_of_event }}</p>
+            <iframe id="iframe" src={{ models.qr_code }}></iframe>
+            {% endfor %}
+    </body>
+        </html>
